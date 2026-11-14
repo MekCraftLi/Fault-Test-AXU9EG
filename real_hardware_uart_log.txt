@@ -1,0 +1,86 @@
+
+===============================================================
+  ZYNQ UltraScale+ (AXU9EG / XCZU9EG) Fault Injection Platform 
+  DUT: 4-Tap Complex FIR Filter (Isolated in pblock_TESTMODULE)
+  Architecture: addr-shiyan 100% Hardware Replication (Auto)   
+  Engine: Hardware SEM Controller & ICAPE3 Configuration Engine
+  Targets: 512 Physical PBlock Essential Configuration Bits    
+  Evaluation: 100% Raw Silicon Output vs Filter Golden Model   
+  Console: PS UART on COM6 (115200 8N1)                        
+===============================================================
+
+[Init] CSU PCAP_CTRL (0xFFCA3008) = 0x00000000
+[Init] Released ICAPE3 to PL SEM. Updated PCAP_CTRL = 0x00000000
+
+  [SEM] Waiting for SEM Controller Initialization...
+  [SEM] Initial Status: init=0, obs=1, busy=0
+[Phase 1] Executing Hardware Filter Baseline Verification...
+  Input[0]= 10 -> Expected:  1270 | Hardware Out:  1270 [PASS]
+  Input[1]= 20 -> Expected:  2540 | Hardware Out:  2540 [PASS]
+  Input[2]=-15 -> Expected: -1905 | Hardware Out: -1905 [PASS]
+  Input[3]=  8 -> Expected:  1016 | Hardware Out:  1016 [PASS]
+  Input[4]= 35 -> Expected:  4445 | Hardware Out:  4445 [PASS]
+  Input[5]=-42 -> Expected: -5334 | Hardware Out: -5334 [PASS]
+  Input[6]= 60 -> Expected:  7620 | Hardware Out:  7620 [PASS]
+  Input[7]=-18 -> Expected: -2286 | Hardware Out: -2286 [PASS]
+[Phase 1] Hardware Filter Baseline Test: 100% [PASS]
+
+[Phase 1.5] Testing Direct SEM CRAM Flip Verification...
+  Target LFA: 0x042EA832 (Frame 17130, W:65, B:18)
+  State after CMD_IDLE: obs=0, busy=0
+  State after CMD_INJECT: pulse=1, inj_stat=0x02
+  State in Observation: obs=1, busy=0, class_reg=0x00
+
+[Phase 2] Loading PBlock Essential Bits Target Table...
+  [Info] Verified JTAG-delivered ebd.bin at DDR4 0x20000000
+  Total Injection Targets: 512
+
+[Phase 3] Starting Automated PBlock Physical Fault Injection...
+---------------------------------------------------------------
+  [DEBUG Target 0] Pre-Idle: obs=1, busy=0, init=0
+  [DEBUG Target 0] Post-Idle: obs=0, busy=0, init=0
+  [DEBUG Target 0] Post-Inject send: obs=0, busy=0, inj=2
+  [DEBUG Target 0] Poll result: saw_pulse=1, inj_stat=0x02, busy=0, class=0x04
+  [DEBUG Target 0] injectFault status_injection pulse: DETECTED
+[  1/512] Frame:17039 W:45 B:25 | LFA: 0x0428F5B9 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[ 21/512] Frame:17058 W:62 B:27 | LFA: 0x042A27DB | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[ 41/512] Frame:17076 W:58 B:27 | LFA: 0x042B475B | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[ 58/512] Frame:17086 W:52 B:13 | LFA: 0x042BE68D | Diff:  8192 (HW: 9462 Exp: 1270) | [CRITICAL]
+[ 61/512] Frame:17087 W:73 B: 2 | LFA: 0x042BF922 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[ 81/512] Frame:17097 W:77 B:24 | LFA: 0x042C99B8 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[101/512] Frame:17105 W:77 B:18 | LFA: 0x042D19B2 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[121/512] Frame:17112 W:65 B:22 | LFA: 0x042D8836 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[141/512] Frame:17122 W:65 B:29 | LFA: 0x042E283D | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[161/512] Frame:17129 W:63 B:24 | LFA: 0x042E97F8 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[181/512] Frame:17139 W:58 B: 7 | LFA: 0x042F3747 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[201/512] Frame:17148 W:68 B:17 | LFA: 0x042FC891 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[221/512] Frame:17160 W:80 B:24 | LFA: 0x04308A18 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[241/512] Frame:17177 W:59 B:26 | LFA: 0x0431977A | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[261/512] Frame:17219 W:58 B:27 | LFA: 0x0434375B | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[281/512] Frame:17226 W:62 B: 3 | LFA: 0x0434A7C3 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[301/512] Frame:17237 W:58 B:30 | LFA: 0x0435575E | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[321/512] Frame:17249 W:60 B:14 | LFA: 0x0436178E | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[341/512] Frame:17262 W: 6 B:12 | LFA: 0x0436E0CC | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[361/512] Frame:17280 W:75 B: 5 | LFA: 0x04380965 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[381/512] Frame:17296 W:61 B:29 | LFA: 0x043907BD | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[401/512] Frame:17308 W:64 B:10 | LFA: 0x0439C80A | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[421/512] Frame:17318 W:67 B:12 | LFA: 0x043A686C | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[441/512] Frame:17332 W:62 B:13 | LFA: 0x043B47CD | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[461/512] Frame:17346 W:66 B:12 | LFA: 0x043C284C | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[481/512] Frame:17360 W:65 B: 0 | LFA: 0x043D0820 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[501/512] Frame:17376 W:64 B: 6 | LFA: 0x043E0806 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[512/512] Frame:17397 W:58 B:16 | LFA: 0x043F5750 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+
+===============================================================
+               FAULT INJECTION EXPERIMENT REPORT               
+===============================================================
+  DUT Architecture       : 4-Tap Complex FIR Filter            
+  Isolation Domain       : pblock_TESTMODULE                   
+  Total Injected Bits    : 512                                  
+  Silent Faults          : 511 (99.8%)                      
+  Tolerable Faults       : 0 (0.0%)                      
+  Intolerable Faults     : 0 (0.0%)                      
+  Critical Failures      : 1 (0.1%)                      
+  Fault Vulnerability Rate: 0.19%                          
+===============================================================
+  [STATUS] EXPERIMENT FINISHED WITH ZERO USER PROMPT REQUIRED   

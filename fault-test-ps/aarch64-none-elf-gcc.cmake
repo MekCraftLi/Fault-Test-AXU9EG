@@ -1,0 +1,10 @@
+set(CMAKE_SYSTEM_NAME Generic)
+set(CMAKE_SYSTEM_PROCESSOR aarch64)
+set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
+
+set(CMAKE_TOOLCHAIN_DIR "C:/Xilinx/Vitis/2022.2/gnu/aarch64/nt/aarch64-none/bin")
+set(CMAKE_C_COMPILER "${CMAKE_TOOLCHAIN_DIR}/aarch64-none-elf-gcc.exe")
+set(CMAKE_CXX_COMPILER "${CMAKE_TOOLCHAIN_DIR}/aarch64-none-elf-g++.exe")
+set(CMAKE_ASM_COMPILER "${CMAKE_TOOLCHAIN_DIR}/aarch64-none-elf-gcc.exe")
+set(CMAKE_AR "${CMAKE_TOOLCHAIN_DIR}/aarch64-none-elf-ar.exe")
+set(CMAKE_SIZE "${CMAKE_TOOLCHAIN_DIR}/aarch64-none-elf-size.exe")

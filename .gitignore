@@ -1,0 +1,65 @@
+# =============================================================================
+# Gitignore for Fault-Test-AXU9EG (ZYNQ UltraScale+ XCZU9EG)
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Vivado Intermediate & Generated Output Directories
+# -----------------------------------------------------------------------------
+.Xil/
+**/.Xil/
+*.runs/
+*.cache/
+*.hw/
+*.ip_user_files/
+*.gen/
+
+# Vivado Log & Journal Files
+*.jou
+*.log
+*.backup.jou
+*.backup.log
+*.str
+*.dcp
+
+# Giant configuration SRAM raw dumps (>100MB exceeds GitHub limits and regeneratable)
+*.ebd
+*.ebc
+*.ll
+
+# Temporary IP Example Design
+sem_example/
+
+# -----------------------------------------------------------------------------
+# C/C++ & CMake Build Artifacts
+# -----------------------------------------------------------------------------
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+build.ninja
+.ninja_deps
+.ninja_log
+*.o
+*.obj
+*.d
+
+# -----------------------------------------------------------------------------
+# Python & Editor Files
+# -----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# -----------------------------------------------------------------------------
+# Final Deliverables to Retain (explicitly keep as requested)
+# -----------------------------------------------------------------------------
+!*.bit
+!*.elf
+!*.xsa
+!*.bin
+!frameRange.txt
+!real_hardware_uart_log.txt
