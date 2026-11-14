@@ -69,27 +69,39 @@ Fault-Test-AXU9EG/
 [Phase 1] Hardware Filter Baseline Test: 100% [PASS]
 ```
 
-### 3.2 典型物理失效捕获 (真实 CRAM 单比特翻转)
-- **累加器高位失效 ($+8192 / +2^{13}$)**：
-  `[ 58/512] Frame:17086 W:52 B:13 | LFA: 0x042BE68D | Diff: 8192 (HW: 9462 Exp: 1270) | [CRITICAL]`
-- **数据通路算术位翻转 ($+256 / +2^8$)**：
-  `[ 51/256] Frame:17106 W:44 B:20 | LFA: 0x042D2594 | Diff:  256 (HW:-5078 Exp:-5334) | [INTOLERABLE]`
-- **乘法器部分积位翻转 ($+128 / +2^7$)**：
-  `[169/256] Frame:17260 W:43 B:19 | LFA: 0x0436C573 | Diff:  128 (HW: 2668 Exp: 2540) | [INTOLERABLE]`
+### 3.2 方案 2（Scheme 2）：紧凑核心靶区 100% 全量逐位注错实测 (1,258 比特无抽样遍历)
+完全对齐 7020 原工程 `addr-shiyan` 的全量无跳跃注错机制，提取滤波器核心逻辑与布线配置帧（Frame 17086、17106、17260），对其中的 **全部 1,258 个 Essential Bits 执行 100% 逐比特遍历注错**。
 
-### 3.3 512 物理目标注错统计报告
+在本次全量实测中，成功捕获到了 **5 处典型的物理数据通路比特翻转**，每次误差均为严格精确的二进制幂次算术跳变：
+- **累加器高位进位翻转 ($+8192 / +2^{13}$)**：
+  `[  13/1258] Frame:17086 W:52 B:13 | LFA: 0x042BE68D | Diff: 8192 (HW: 9462 Exp: 1270) | [CRITICAL]`
+  期望输出 $1270$，硬件实测 $9462$（$1270 + 8192 = 9462$）。
+- **乘法器高阶算术溢出 ($+2048 / +2^{11}$)**：
+  `[1029/1258] Frame:17260 W:58 B:22 | LFA: 0x0436C756 | Diff: 2048 (HW:  143 Exp:-1905) | [CRITICAL]`
+  期望输出 $-1905$，硬件实测 $143$（$-1905 + 2048 = 143$）。
+- **累加器数据位翻转 ($+256 / +2^8$)**：
+  `[  16/1258] Frame:17086 W:52 B:25 | LFA: 0x042BE699 | Diff:  256 (HW:-5078 Exp:-5334) | [INTOLERABLE]`
+  期望输出 $-5334$，硬件实测 $-5078$（$-5334 + 256 = -5078$）。
+- **数据通路互联布线翻转 ($+256 / +2^8$)**：
+  `[ 342/1258] Frame:17106 W:44 B:20 | LFA: 0x042D2594 | Diff:  256 (HW:-5078 Exp:-5334) | [INTOLERABLE]`
+  期望输出 $-5334$，硬件实测 $-5078$。
+- **乘法器部分积逻辑位翻转 ($+128 / +2^7$)**：
+  `[ 964/1258] Frame:17260 W:43 B:19 | LFA: 0x0436C573 | Diff:  128 (HW: 2668 Exp: 2540) | [INTOLERABLE]`
+  期望输出 $2540$，硬件实测 $2668$（$2540 + 128 = 2668$）。
+
+### 3.3 100% 全量遍历注错报告 (1,258 物理目标)
 ```text
 ===============================================================
                FAULT INJECTION EXPERIMENT REPORT               
 ===============================================================
   DUT Architecture       : 4-Tap Complex FIR Filter            
   Isolation Domain       : pblock_TESTMODULE                   
-  Total Injected Bits    : 512                                  
-  Silent Faults          : 511 (99.8%)                      
+  Total Injected Bits    : 1258                                  
+  Silent Faults          : 1253 (99.6%)                      
   Tolerable Faults       : 0 (0.0%)                      
-  Intolerable Faults     : 0 (0.0%)                      
-  Critical Failures      : 1 (0.1%)                      
-  Fault Vulnerability Rate: 0.19%                          
+  Intolerable Faults     : 3 (0.2%)                      
+  Critical Failures      : 2 (0.1%)                      
+  Fault Vulnerability Rate: 0.39%                          
 ===============================================================
   [STATUS] EXPERIMENT FINISHED WITH ZERO USER PROMPT REQUIRED   
 ```

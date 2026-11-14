@@ -49,8 +49,8 @@ def main():
 
     print("Waiting for UART output from silicon...", flush=True)
     start_time = time.time()
-    # Wait up to 90 seconds for injection completion
-    while not stop_event.is_set() and (time.time() - start_time < 90):
+    # Wait up to 180 seconds for 1973-target injection completion
+    while not stop_event.is_set() and (time.time() - start_time < 180):
         time.sleep(0.5)
 
     stop_event.set()

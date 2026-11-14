@@ -144,6 +144,7 @@ int main() {
     // Phase 3: Automated Batch Fault Injection (Authentic Hardware-in-the-Loop)
     // -------------------------------------------------------------
     xil_printf("[Phase 3] Starting Automated PBlock Physical Fault Injection...\r\n");
+    xil_printf("  Mode: Scheme 2 (100%% Full Coverage, Replicating 7020 addr-shiyan)\r\n");
     xil_printf("---------------------------------------------------------------\r\n");
 
     uint32_t cnt_silent = 0;
@@ -215,8 +216,8 @@ int main() {
         dut.applyReset();
 
         // 5. Periodic & Event Progress Reporting
-        if (max_diff > 0 || (idx % 20 == 0) || (idx == target_count - 1)) {
-            xil_printf("[%3d/%d] Frame:%5d W:%2d B:%2d | LFA: 0x%08X | Diff: %5d (HW:%5d Exp:%5d) | [%s]\r\n",
+        if (max_diff > 0 || (idx % 50 == 0) || (idx == target_count - 1)) {
+            xil_printf("[%4d/%d] Frame:%5d W:%2d B:%2d | LFA: 0x%08X | Diff: %5d (HW:%5d Exp:%5d) | [%s]\r\n",
                        idx + 1, target_count, target.frame, target.word, target.bit,
                        far_addr, max_diff, worst_hw_val, worst_exp_val, class_str);
         }

@@ -4,7 +4,7 @@
   DUT: 4-Tap Complex FIR Filter (Isolated in pblock_TESTMODULE)
   Architecture: addr-shiyan 100% Hardware Replication (Auto)   
   Engine: Hardware SEM Controller & ICAPE3 Configuration Engine
-  Targets: 512 Physical PBlock Essential Configuration Bits    
+  Targets: 1258 Physical PBlock Essential Configuration Bits    
   Evaluation: 100% Raw Silicon Output vs Filter Golden Model   
   Console: PS UART on COM6 (115200 8N1)                        
 ===============================================================
@@ -33,54 +33,59 @@
 
 [Phase 2] Loading PBlock Essential Bits Target Table...
   [Info] Verified JTAG-delivered ebd.bin at DDR4 0x20000000
-  Total Injection Targets: 512
+  Total Injection Targets: 1258
 
 [Phase 3] Starting Automated PBlock Physical Fault Injection...
+  Mode: Scheme 2 (100% Full Coverage, Replicating 7020 addr-shiyan)
 ---------------------------------------------------------------
   [DEBUG Target 0] Pre-Idle: obs=1, busy=0, init=0
   [DEBUG Target 0] Post-Idle: obs=0, busy=0, init=0
   [DEBUG Target 0] Post-Inject send: obs=0, busy=0, inj=2
   [DEBUG Target 0] Poll result: saw_pulse=1, inj_stat=0x02, busy=0, class=0x04
   [DEBUG Target 0] injectFault status_injection pulse: DETECTED
-[  1/512] Frame:17039 W:45 B:25 | LFA: 0x0428F5B9 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[ 21/512] Frame:17058 W:62 B:27 | LFA: 0x042A27DB | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[ 41/512] Frame:17076 W:58 B:27 | LFA: 0x042B475B | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[ 58/512] Frame:17086 W:52 B:13 | LFA: 0x042BE68D | Diff:  8192 (HW: 9462 Exp: 1270) | [CRITICAL]
-[ 61/512] Frame:17087 W:73 B: 2 | LFA: 0x042BF922 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[ 81/512] Frame:17097 W:77 B:24 | LFA: 0x042C99B8 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[101/512] Frame:17105 W:77 B:18 | LFA: 0x042D19B2 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[121/512] Frame:17112 W:65 B:22 | LFA: 0x042D8836 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[141/512] Frame:17122 W:65 B:29 | LFA: 0x042E283D | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[161/512] Frame:17129 W:63 B:24 | LFA: 0x042E97F8 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[181/512] Frame:17139 W:58 B: 7 | LFA: 0x042F3747 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[201/512] Frame:17148 W:68 B:17 | LFA: 0x042FC891 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[221/512] Frame:17160 W:80 B:24 | LFA: 0x04308A18 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[241/512] Frame:17177 W:59 B:26 | LFA: 0x0431977A | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[261/512] Frame:17219 W:58 B:27 | LFA: 0x0434375B | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[281/512] Frame:17226 W:62 B: 3 | LFA: 0x0434A7C3 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[301/512] Frame:17237 W:58 B:30 | LFA: 0x0435575E | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[321/512] Frame:17249 W:60 B:14 | LFA: 0x0436178E | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[341/512] Frame:17262 W: 6 B:12 | LFA: 0x0436E0CC | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[361/512] Frame:17280 W:75 B: 5 | LFA: 0x04380965 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[381/512] Frame:17296 W:61 B:29 | LFA: 0x043907BD | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[401/512] Frame:17308 W:64 B:10 | LFA: 0x0439C80A | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[421/512] Frame:17318 W:67 B:12 | LFA: 0x043A686C | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[441/512] Frame:17332 W:62 B:13 | LFA: 0x043B47CD | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[461/512] Frame:17346 W:66 B:12 | LFA: 0x043C284C | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[481/512] Frame:17360 W:65 B: 0 | LFA: 0x043D0820 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[501/512] Frame:17376 W:64 B: 6 | LFA: 0x043E0806 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
-[512/512] Frame:17397 W:58 B:16 | LFA: 0x043F5750 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[   1/1258] Frame:17086 W: 7 B:13 | LFA: 0x042BE0ED | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[  13/1258] Frame:17086 W:52 B:13 | LFA: 0x042BE68D | Diff:  8192 (HW: 9462 Exp: 1270) | [CRITICAL]
+[  16/1258] Frame:17086 W:52 B:25 | LFA: 0x042BE699 | Diff:   256 (HW:-5078 Exp:-5334) | [INTOLERABLE]
+[  51/1258] Frame:17086 W:57 B:29 | LFA: 0x042BE73D | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[ 101/1258] Frame:17086 W:62 B: 9 | LFA: 0x042BE7C9 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[ 151/1258] Frame:17086 W:66 B:12 | LFA: 0x042BE84C | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[ 201/1258] Frame:17086 W:68 B:22 | LFA: 0x042BE896 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[ 251/1258] Frame:17086 W:74 B: 7 | LFA: 0x042BE947 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[ 301/1258] Frame:17086 W:77 B:24 | LFA: 0x042BE9B8 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[ 342/1258] Frame:17106 W:44 B:20 | LFA: 0x042D2594 | Diff:   256 (HW:-5078 Exp:-5334) | [INTOLERABLE]
+[ 351/1258] Frame:17106 W:44 B:29 | LFA: 0x042D259D | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[ 401/1258] Frame:17106 W:56 B:31 | LFA: 0x042D271F | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[ 451/1258] Frame:17106 W:58 B:17 | LFA: 0x042D2751 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[ 501/1258] Frame:17106 W:60 B: 3 | LFA: 0x042D2783 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[ 551/1258] Frame:17106 W:63 B: 5 | LFA: 0x042D27E5 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[ 601/1258] Frame:17106 W:64 B:23 | LFA: 0x042D2817 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[ 651/1258] Frame:17106 W:66 B: 9 | LFA: 0x042D2849 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[ 701/1258] Frame:17106 W:67 B:27 | LFA: 0x042D287B | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[ 751/1258] Frame:17106 W:69 B:13 | LFA: 0x042D28AD | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[ 801/1258] Frame:17106 W:73 B:31 | LFA: 0x042D293F | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[ 851/1258] Frame:17106 W:75 B:17 | LFA: 0x042D2971 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[ 901/1258] Frame:17106 W:77 B: 3 | LFA: 0x042D29A3 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[ 951/1258] Frame:17106 W:78 B:21 | LFA: 0x042D29D5 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[ 964/1258] Frame:17260 W:43 B:19 | LFA: 0x0436C573 | Diff:   128 (HW: 2668 Exp: 2540) | [INTOLERABLE]
+[1001/1258] Frame:17260 W:56 B:17 | LFA: 0x0436C711 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[1029/1258] Frame:17260 W:58 B:22 | LFA: 0x0436C756 | Diff:  2048 (HW:  143 Exp:-1905) | [CRITICAL]
+[1051/1258] Frame:17260 W:60 B: 5 | LFA: 0x0436C785 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[1101/1258] Frame:17260 W:64 B: 0 | LFA: 0x0436C800 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[1151/1258] Frame:17260 W:67 B:28 | LFA: 0x0436C87C | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[1201/1258] Frame:17260 W:75 B: 1 | LFA: 0x0436C961 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[1251/1258] Frame:17260 W:81 B:23 | LFA: 0x0436CA37 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
+[1258/1258] Frame:17260 W:87 B:25 | LFA: 0x0436CAF9 | Diff:     0 (HW: 1270 Exp: 1270) | [SILENT]
 
 ===============================================================
                FAULT INJECTION EXPERIMENT REPORT               
 ===============================================================
   DUT Architecture       : 4-Tap Complex FIR Filter            
   Isolation Domain       : pblock_TESTMODULE                   
-  Total Injected Bits    : 512                                  
-  Silent Faults          : 511 (99.8%)                      
+  Total Injected Bits    : 1258                                  
+  Silent Faults          : 1253 (99.6%)                      
   Tolerable Faults       : 0 (0.0%)                      
-  Intolerable Faults     : 0 (0.0%)                      
-  Critical Failures      : 1 (0.1%)                      
-  Fault Vulnerability Rate: 0.19%                          
+  Intolerable Faults     : 3 (0.2%)                      
+  Critical Failures      : 2 (0.1%)                      
+  Fault Vulnerability Rate: 0.39%                          
 ===============================================================
   [STATUS] EXPERIMENT FINISHED WITH ZERO USER PROMPT REQUIRED   
